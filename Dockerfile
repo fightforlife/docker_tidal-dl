@@ -1,9 +1,9 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.18-v4
+FROM jlesage/baseimage-gui:ubuntu-20.04-v4
 
 # Install python/pip
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN apt update
+RUN apt install -y python3-pip
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 
